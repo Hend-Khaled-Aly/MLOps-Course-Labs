@@ -149,7 +149,7 @@ def log_experiment(model, model_name, X_train, X_test, y_train, y_test):
 
 def main():
     mlflow.set_tracking_uri("http://127.0.0.1:5000")  # Change if using a remote tracking server
-    mlflow.set_experiment("churn_prediction_experiment")
+    mlflow.set_experiment("churn_prediction_experiment3")
 
     df = pd.read_csv("data/Churn_Modelling.csv")
     _, X_train, X_test, y_train, y_test = preprocess(df)
