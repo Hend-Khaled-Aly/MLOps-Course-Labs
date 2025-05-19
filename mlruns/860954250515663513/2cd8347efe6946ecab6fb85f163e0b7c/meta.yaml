@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/860954250515663513/2cd8347efe6946ecab6fb85f163e0b7c/artifacts
+end_time: 1747682307365
+entry_point_name: ''
+experiment_id: '860954250515663513'
+lifecycle_stage: active
+run_id: 2cd8347efe6946ecab6fb85f163e0b7c
+run_name: RandomForest
+run_uuid: 2cd8347efe6946ecab6fb85f163e0b7c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747682301859
+status: 3
+tags: []
+user_id: Hend-PC
