@@ -78,16 +78,13 @@ Confusion matrices are saved and logged as MLflow artifacts.
 
 ---
 
-## 🗂 Model Registry
-
+🗂 Model Registry
 After training, the top 2 models are automatically registered with MLflow and promoted to appropriate stages.
 
-### ✅ Model Promotion
-
-| Model                | Stage      | Justification                                             |
-| -------------------- | ---------- | --------------------------------------------------------- |
-| `XGBoost_model`      | Production | Highest F1 score, indicating strong predictive capability |
-| `RandomForest_model` | Staging    | Solid performance and reliability as a backup model       |
+✅ Model Promotion
+Model	Stage	Justification
+RandomForest_model	Production	Best overall performance (F1 and accuracy), reliable and interpretable
+XGBoost_model	Staging	Competitive performance, ideal backup with high recall capability
 
 To register models:
 
