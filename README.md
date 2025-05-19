@@ -83,8 +83,8 @@ After training, the top 2 models are automatically registered with MLflow and pr
 
 ✅ Model Promotion
 Model	Stage	Justification
-RandomForest_model	Production	Best overall performance (F1 and accuracy), reliable and interpretable
-XGBoost_model	Staging	Competitive performance, ideal backup with high recall capability
+RandomForest_model	-> Production ->	Best overall -> performance (F1 and accuracy), reliable and interpretable
+XGBoost_model	-> Staging ->	Competitive performance -> ideal backup with high recall capability
 
 To register models:
 
