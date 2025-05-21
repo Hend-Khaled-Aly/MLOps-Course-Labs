@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/297750518798131988/7a90c48f124b4fb09d487a33a409fe83/artifacts
+end_time: 1747828347440
+entry_point_name: ''
+experiment_id: '297750518798131988'
+lifecycle_stage: active
+run_id: 7a90c48f124b4fb09d487a33a409fe83
+run_name: LogisticRegression
+run_uuid: 7a90c48f124b4fb09d487a33a409fe83
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747828327692
+status: 3
+tags: []
+user_id: Hend-PC

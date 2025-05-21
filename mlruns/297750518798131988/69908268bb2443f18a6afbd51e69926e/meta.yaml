@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/297750518798131988/69908268bb2443f18a6afbd51e69926e/artifacts
+end_time: 1747828376341
+entry_point_name: ''
+experiment_id: '297750518798131988'
+lifecycle_stage: active
+run_id: 69908268bb2443f18a6afbd51e69926e
+run_name: XGBoost
+run_uuid: 69908268bb2443f18a6afbd51e69926e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747828362451
+status: 3
+tags: []
+user_id: Hend-PC
