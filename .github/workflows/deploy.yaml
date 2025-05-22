@@ -49,28 +49,23 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v2
 
 
-    - name: Tag and Push Docker Image to ECR
+    - name: Push Docker Image to ECR
       run: |
-        IMAGE_URI=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/churn-prediction:hend523
-        docker tag churn-prediction:local $IMAGE_URI
-        docker push $IMAGE_URI
+        aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+        docker tag ml-model-service:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/churn-prediction:hend523
+        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/churn-prediction:hend523  
 
-    - name: Deploy to EC2 and Run Docker Container
+    - name: Deploy to EC2
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.EC2_HOST }}
+        host: ${{ secrets.EC2_HOST }}  
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          mkdir -p ~/hend
-          cd ~/hend
-          if [ ! -d "churn-repo" ]; then
-            git clone https://github.com/Hend-Khaled-Aly/MLOps-Course-Labs.git churn-repo
-          else
-            cd churn-repo
-            git pull
-          fi
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
           docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/churn-prediction:hend523
-          docker compose down || true
-          docker compose up -d
+          docker stop churn-prediction || true
+          docker rm churn-prediction || true
+          docker run -d -p 80:8005 --name churn-prediction ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/churn-prediction:hend523 
+
+
