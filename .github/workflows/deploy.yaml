@@ -3,7 +3,7 @@ name: Test and Build API
 on:
   push:
     branches:
-      - main
+      - feature/api
 
 jobs:
   test-and-build:
