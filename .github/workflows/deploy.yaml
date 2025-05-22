@@ -26,6 +26,10 @@ jobs:
     - name: Check Python Syntax (optional)
       run: |
         python -m py_compile main.py
+        
+    - name: Run Unit Tests
+      run: |
+        pytest
 
     - name: Build Docker image
       run: |
